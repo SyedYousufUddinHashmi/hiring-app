@@ -31,7 +31,7 @@ pipeline {
                 script{
                     withCredentials([string(credentialsId: 'githubtoken', variable: 'GIT_TOKEN')]) { 
                         sh '''
-                        git config --global user.email yousufhashmi6514@outlook.com
+                        git config --global user.email Yousufhashmi20@gmail.com
                         git config --global user.name SyedYousufUddinHashmi
                         cat /var/lib/jenkins/workspace/$JOB_NAME/dev/deployment.yaml
                         sed -i "s/2/${BUILD_NUMBER}/g" /var/lib/jenkins/workspace/$JOB_NAME/dev/deployment.yaml
