@@ -23,7 +23,7 @@ pipeline {
         }
         stage('Checkout K8S manifest SCM'){
             steps {
-              git branch: 'main', url: 'https://github.com/betawins/Hiring-app-argocd.git'
+              git branch: 'main', url: 'https://github.com/SyedYousufUddinHashmi/Hiring-app-argocd1.git'
             }
         } 
         stage('Update K8S manifest & push to Repo'){
@@ -32,7 +32,7 @@ pipeline {
                    withCredentials([usernamePassword(credentialsId: 'githubtoken', variable: 'GIT_TOKEN')]) { 
                         sh '''
                         cat /var/lib/jenkins/workspace/$JOB_NAME/dev/deployment.yaml
-                        sed -i "s/5/${BUILD_NUMBER}/g" /var/lib/jenkins/workspace/$JOB_NAME/dev/deployment.yaml
+                        sed -i "s/2/${BUILD_NUMBER}/g" /var/lib/jenkins/workspace/$JOB_NAME/dev/deployment.yaml
                         cat /var/lib/jenkins/workspace/$JOB_NAME/dev/deployment.yaml
                         git add .
                         git commit -m 'Updated the deploy yaml | Jenkins Pipeline'
